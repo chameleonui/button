@@ -1,0 +1,204 @@
+// =============================================================================
+// Button Flat
+// =============================================================================
+
+// Use flags
+// =============================================================================
+
+
+// Variables
+// =============================================================================
+button-class = 'button';
+
+// Style -- common for all
+button-default-padding ?= (1/8) (1/2);
+button-default-font-size ?= 16px;
+button-default-font-weight ?= 400;
+button-default-line-height ?= 1.5;
+button-default-border-width ?= 1px;
+button-default-border-radius ?= 0;
+button-default-disabled-opacity = .65;
+
+// Sizes -- list
+button-sizes-list ?= small, large;
+
+// Sizes -- config for listed sizes above
+button-small-padding ?= 2px 8px;
+button-small-font-size ?= 14px;
+button-small-line-height ?= 18px;
+button-small-border-radius ?= 0;
+
+button-large-padding ?= 12px 24px;
+button-large-font-size ?= 18px;
+button-large-line-height ?= 24px;
+button-large-border-radius ?= 0;
+
+
+// Type - Unnamed & default config
+button-default-bg-color ?= #666;
+button-default-color ?= #fff;
+button-default-border-color ?= button-default-bg-color;
+
+button-default-hover-bg-color ?= darken(button-default-bg-color, 25%);
+button-default-hover-color ?= button-default-color;
+button-default-hover-border-color ?= button-default-hover-bg-color;
+
+button-default-active-bg-color ?= darken(button-default-bg-color, 50%);
+button-default-active-color ?= button-default-color;
+button-default-active-border-color ?= button-default-active-bg-color;
+
+// Type - list of others
+button-types-list ?= primary, danger;
+
+// Type - config for listed types above
+// -- Primary
+button-primary-color ?= #fff;
+button-primary-bg-color ?= #3338ff;
+button-primary-border-color ?= button-primary-bg-color;
+
+button-primary-hover-bg-color ?= darken(button-primary-bg-color, 25%);
+button-primary-hover-color ?= button-primary-color;
+button-primary-hover-border-color ?= button-primary-hover-bg-color;
+
+button-primary-active-bg-color ?= darken(button-primary-bg-color, 50%);
+button-primary-active-color ?= button-primary-color;
+button-primary-active-border-color ?= button-primary-active-bg-color;
+
+// -- Danger
+button-danger-color ?= #fff;
+button-danger-bg-color ?= #f5372b;
+button-danger-border-color ?= button-danger-bg-color;
+
+button-danger-hover-bg-color ?= darken(button-danger-bg-color, 25%);
+button-danger-hover-color ?= button-danger-color;
+button-danger-hover-border-color ?= button-danger-hover-bg-color;
+
+button-danger-active-bg-color ?= darken(button-danger-bg-color, 50%);
+button-danger-active-color ?= button-danger-color;
+button-danger-active-border-color ?= button-danger-active-bg-color;
+
+
+// Mixins
+// =============================================================================
+
+button-flat-style(class) {
+    types = (class);
+    for type in button-types-list {
+        push(types, class + '-' + type);
+    }
+    {selectorize('.', types)},
+    {selectorize('a.', types)} {
+        display: inline-block;
+        margin-bottom: 0; // For input.button
+        padding: button-default-padding;
+        border-style: solid;
+        border-width: button-default-border-width;
+        border-radius: button-default-border-radius;
+        vertical-align: middle;
+        text-align: center;
+        font-size button-default-font-size;
+        font-weight: button-default-font-weight;
+        line-height: button-default-line-height;
+        text-decoration: none;
+        color: button-default-color;
+        cursor: pointer;
+        transition: all .1s linear;
+    }  
+
+    {selectorize('.', types,':hover')},
+    {selectorize('.', types,':focus')},
+    {selectorize('.', types,':active')},
+    {selectorize('.', types,'.is-disabled')},
+    {selectorize('.', types,'.[disabled]')},
+    {selectorize('a.', types,':hover')},
+    {selectorize('a.', types,':focus')},
+    {selectorize('a.', types,':active')},
+    {selectorize('a.', types,'.is-disabled')},
+    {selectorize('a.', types,'.[disabled]')} {
+        text-decoration: none;
+    }
+        
+}
+
+button-flat-expand(class){
+    .{class}-expand {
+        display: block;
+        width: 100%;
+    }
+}
+
+button-flat-size(size = 'default') {
+    padding: button-+size+-padding;
+    font-size: button-+size+-font-size;
+    line-height: button-+size+-line-height;
+    border-radius: button-+size+-border-radius;
+}
+
+button-flat-type(type = 'default'){
+    background-color: button-+type+-bg-color
+    border-color: button-+type+-border-color;
+    color: button-+type+-color;
+
+    &:hover,
+    &.is-hover {
+        background-color: button-+type+-hover-bg-color;
+        border-color: button-+type+-hover-border-color;
+        color: button-+type+-hover-color;
+    }
+
+    &:active,
+    &.is-active {
+        background-color: button-+type+-active-bg-color
+        border-color: button-+type+-active-border-color;
+        color: button-+type+-active-color;
+    }
+
+    &.is-disabled,
+    &[disabled],
+    &.is-disabled:hover,
+    &[disabled]:hover,
+    &.is-disabled:active,
+    &[disabled]:active {
+        border-color: button-+type+-border-color;
+        color: button-+type+-color;
+        background-color: button-+type+-bg-color
+        opacity: button-default-disabled-opacity;
+        box-shadow: none;
+        cursor: default;
+    }
+}
+
+button-flat(){
+    // Common style
+    button-flat-style(button-class);
+    button-flat-expand(button-class) if use-form-expand;
+    
+    if (use-form-sizes) {
+        // Listed sizes generator
+        for size in button-sizes-list {
+            .{button-class}-{size},
+            a.{button-class}-{size}{
+                button-flat-size(size);
+            }
+        }
+    }
+    
+
+    // Unnamed and default button type style
+    .{button-class},
+    a.{button-class}
+    .{button-class}-default,
+    a.{button-class}-default{
+        button-flat-type();
+    }
+
+    if (use-form-types) {
+        // Listed types generator
+        for type in button-types-list {
+            .{button-class}-{type},
+            a.{button-class}-{type} {
+                button-flat-type(type);
+            }
+        }
+    }
+}

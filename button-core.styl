@@ -1,0 +1,121 @@
+// =============================================================================
+// Button Core
+// =============================================================================
+
+
+// Mixins
+// =============================================================================
+
+button-style(class) {
+    types = (class);
+    for type in button-types-list {
+        push(types, class + '-' + type);
+    }
+    {selectorize('.', types)},
+    {selectorize('a.', types)} {
+        display: inline-block;
+        padding: button-padding;
+        font-size button-font-size;
+        transition: all .1s linear;
+        margin-bottom: 0; // For input.button
+        line-height: button-line-height;
+        text-align: center;
+        vertical-align: middle;
+        font-weight: button-font-weight;
+        text-decoration: none;
+        cursor: pointer;
+    }  
+
+    {selectorize('.', types,':hover')},
+    {selectorize('.', types,':focus')},
+    {selectorize('.', types,':active')},
+    {selectorize('.', types,'.is-disabled')},
+    {selectorize('.', types,'.[disabled]')},
+    {selectorize('a.', types,':hover')},
+    {selectorize('a.', types,':focus')},
+    {selectorize('a.', types,':active')},
+    {selectorize('a.', types,'.is-disabled')},
+    {selectorize('a.', types,'.[disabled]')} {
+        background-image: none;
+        text-decoration: none;
+    }
+
+    {selectorize('.', types, '.expand')},
+    {selectorize('a.', types, '.expand')} {
+        display: block;
+        width: 100%;
+    }
+        
+}
+
+button-size(size) {
+    // Set variables according to type and use defualts if type is null
+    if (size != null){
+        padding = button-+size+-padding;
+        font-size = button-+size+-font-size;
+        line-height = button-+size+-line-height;
+        border-radius = button-+size+-border-radius;
+    } else {
+        padding = button-padding;
+        font-size = button-font-size;
+        line-height = button-line-height;
+        border-radius = button-border-radius;
+    }
+
+    // Apply styles
+    padding: padding;
+    font-size: font-size;
+    line-height: line-height;
+    border-radius: border-radius;
+}
+
+button-type(type = null){
+    // Set variables according to type and use defualts if type is null
+    if (type != null){
+        color = button-+type+-color;
+        bg-start-color = button-+type+-bg-color-start if use-button-bg-gradient;
+        bg-end-color = button-+type+-bg-color-end if use-button-bg-gradient;
+        bg-color = button-+type+-bg-color;
+        border-color = button-+type+-border-color;
+        border-color = button-+type+-border-color;
+    } else {
+        color = button-color;
+        bg-start-color = button-bg-color-start if use-button-bg-gradient;
+        bg-end-color = button-bg-color-end if use-button-bg-gradient;
+        bg-color = button-bg-color;
+        border-color = button-border-color;
+    }
+    
+    // Apply styles
+    gradient-vertical(bg-start-color, bg-end-color) if use-button-bg-gradient;
+    background-color: bg-color if !use-button-bg-gradient; // Apply when gradients disabled
+    border-width: 1px;
+    border-style: solid;
+    border-color: border-color;
+    border-radius: button-border-radius;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+    color: color;
+    // &:link,
+    // &:visited {
+    // }
+
+    &:hover {
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+    }
+
+    // &:focus {
+    //    tab-focus();
+    // }
+
+    &:active {
+        box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+        outline: 0;
+    }
+
+    &.is-disabled,
+    &[disabled] {
+        opacity: button-disabled-opacity;
+        box-shadow: none;
+        cursor: default;
+    }
+}
