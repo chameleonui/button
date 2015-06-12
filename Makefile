@@ -2,7 +2,7 @@
 build: components button.css
 	@component build --dev
 
-example: components button.styl example.styl
+example: components example.styl
 	@stylus example.styl
 
 components: component.json
