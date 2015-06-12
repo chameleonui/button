@@ -1,3 +1,9 @@
+### v1.1.0
+
+- Updated component dependency version
+- Stylus files moved to subfolder
+- Fixed dynamic variable binding with `lookup()`
+
 ### v1.0.2
 
 - Added version to dependency
