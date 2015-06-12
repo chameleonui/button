@@ -103,7 +103,7 @@ button-flat-style(class) {
         color: button-default-color;
         cursor: pointer;
         transition: all .1s linear;
-    }  
+    }
 
     {selectorize('.', types,':hover')},
     {selectorize('.', types,':focus')},
@@ -117,7 +117,7 @@ button-flat-style(class) {
     {selectorize('a.', types,'[disabled]')} {
         text-decoration: none;
     }
-        
+
 }
 
 button-flat-expand(class){
@@ -128,29 +128,29 @@ button-flat-expand(class){
 }
 
 button-flat-size(size = 'default') {
-    padding: button-+size+-padding;
-    font-size: button-+size+-font-size;
-    line-height: button-+size+-line-height;
-    border-radius: button-+size+-border-radius;
+    padding: lookup('button-' + size + '-padding');
+    font-size: lookup('button-' + size + '-font-size');
+    line-height: lookup('button-' + size + '-line-height');
+    border-radius: lookup('button-' + size + '-border-radius');
 }
 
 button-flat-type(type = 'default'){
-    background-color: button-+type+-bg-color
-    border-color: button-+type+-border-color;
-    color: button-+type+-color;
+    background-color: lookup('button-' + type + '-bg-color');
+    border-color: lookup('button-' + type + '-border-color');
+    color: lookup('button-' + type + '-color');
 
     &:hover,
     &.is-hover {
-        background-color: button-+type+-hover-bg-color;
-        border-color: button-+type+-hover-border-color;
-        color: button-+type+-hover-color;
+        background-color: lookup('button-' + type + '-hover-bg-color');
+        border-color: lookup('button-' + type + '-hover-border-color');
+        color: lookup('button-' + type + '-hover-color');
     }
 
     &:active,
     &.is-active {
-        background-color: button-+type+-active-bg-color
-        border-color: button-+type+-active-border-color;
-        color: button-+type+-active-color;
+        background-color: lookup('button-' + type + '-active-bg-color');
+        border-color: lookup('button-' + type + '-active-border-color');
+        color: lookup('button-' + type + '-active-color');
     }
 
     &.is-disabled,
@@ -159,10 +159,10 @@ button-flat-type(type = 'default'){
     &[disabled]:hover,
     &.is-disabled:active,
     &[disabled]:active {
-        border-color: button-+type+-border-color;
-        color: button-+type+-color;
-        background-color: button-+type+-bg-color
-        opacity: button-default-disabled-opacity;
+        border-color: lookup('button-' + type + '-border-color');
+        color: lookup('button-' + type + '-color');
+        background-color: lookup('button-' + type + '-bg-color');
+        opacity: lookup('button-' d efau l 't-disabled-opacity');
         box-shadow: none;
         cursor: default;
     }
@@ -172,7 +172,7 @@ button-flat(){
     // Common style
     button-flat-style(button-class);
     button-flat-expand(button-class) if use-form-expand;
-    
+
     if (use-form-sizes) {
         // Listed sizes generator
         for size in button-sizes-list {
@@ -182,7 +182,7 @@ button-flat(){
             }
         }
     }
-    
+
 
     // Unnamed and default button type style
     .{button-class},
