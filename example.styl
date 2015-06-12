@@ -1,21 +1,38 @@
-@import 'components/chameleonui-utils/body-em.styl';
-@import 'components/chameleonui-utils/body-line-height.styl';
-@import 'components/chameleonui-utils/clearfix.styl';
-@import 'components/chameleonui-utils/font-size.styl';
-@import 'components/chameleonui-utils/gradients.styl';
-@import 'components/chameleonui-utils/height.styl';
-@import 'components/chameleonui-utils/margin.styl';
-@import 'components/chameleonui-utils/padding.styl';
-@import 'components/chameleonui-utils/percentage.styl';
-@import 'components/chameleonui-utils/px-rem.styl';
-@import 'components/chameleonui-utils/roundto.styl';
-@import 'components/chameleonui-utils/selectorize.styl';
-@import 'components/chameleonui-utils/string-repeat.styl';
-@import 'components/chameleonui-utils/text-overflow.styl';
-@import 'components/chameleonui-utils/vendors.styl';
-@import 'components/chameleonui-utils/visibility.styl';
-@import 'components/chameleonui-utils/width.styl';
-@import 'button-flat';
-@import 'button';
+@import 'components/chameleonui-utils/stylus/body-em.styl';
+@import 'components/chameleonui-utils/stylus/body-line-height.styl';
+@import 'components/chameleonui-utils/stylus/clearfix.styl';
+@import 'components/chameleonui-utils/stylus/font-size.styl';
+@import 'components/chameleonui-utils/stylus/gradients.styl';
+@import 'components/chameleonui-utils/stylus/height.styl';
+@import 'components/chameleonui-utils/stylus/margin.styl';
+@import 'components/chameleonui-utils/stylus/padding.styl';
+@import 'components/chameleonui-utils/stylus/percentage.styl';
+@import 'components/chameleonui-utils/stylus/px-rem.styl';
+@import 'components/chameleonui-utils/stylus/roundto.styl';
+@import 'components/chameleonui-utils/stylus/selectorize.styl';
+@import 'components/chameleonui-utils/stylus/string-repeat.styl';
+@import 'components/chameleonui-utils/stylus/text-overflow.styl';
+@import 'components/chameleonui-utils/stylus/vendors.styl';
+@import 'components/chameleonui-utils/stylus/visibility.styl';
+@import 'components/chameleonui-utils/stylus/width.styl';
+@import 'stylus/button-flat';
+@import 'stylus/button';
+
+// push another button type to list
+push(button-types-list, 'transparent');
+
+// Add config variables with new type keyword
+// -- Legendary button type
+button-transparent-color = #fff;
+button-transparent-bg-color = #14B694;
+button-transparent-border-color = button-transparent-bg-color;
+
+button-transparent-hover-bg-color = darken(button-transparent-bg-color, 25%);
+button-transparent-hover-color = button-transparent-color;
+button-transparent-hover-border-color = button-transparent-hover-bg-color;
+
+button-transparent-active-bg-color = darken(button-transparent-bg-color, 50%);
+button-transparent-active-color = button-transparent-color;
+button-transparent-active-border-color = button-transparent-active-bg-color;
 
 button();
