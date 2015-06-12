@@ -2,10 +2,10 @@
   "name": "button",
   "repo": "chameleonui/button",
   "description": "Highly customisable buttons",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "keywords": [],
   "dependencies": {
-    "chameleonui/utils": "*"
+    "chameleonui/utils": "1.0.2"
   },
   "development": {},
   "license": "MIT",

@@ -1,3 +1,8 @@
+### v1.0.2
+
+- Added version to dependency
+- Updated Readme.md
+
 ### v1.0.1
 
 - Fixed disabled state CSS error

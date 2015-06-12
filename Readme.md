@@ -3,6 +3,14 @@
 
 Highly customisable buttons
 
+## Requirements
+
+| Prerequisite | Version | How to check | How to install |
+| --- | --- | --- | --- |
+| Node | v0.12.2 | `node -v`| [nodejs.org](https://nodejs.org/) |
+| component | ~v0.19 | `component -V` | [component](https://github.com/componentjs/component) |
+| stylus | v0.33 | `stylus -V` | [stylus](https://learnboost.github.io/stylus/) |
+
 ## Installation
 
 Install with [component](http://component.io):
@@ -89,6 +97,32 @@ button-danger-active-bg-color = darken(button-danger-bg-color, 50%);
 button-danger-active-color = button-danger-color;
 button-danger-active-border-color = button-danger-active-bg-color;
 ```
+
+### Defining new button types
+
+Append another button type to `button-types-list` list. In this case, will create Legendary button type.
+
+```
+// Type - list of others
+button-types-list = primary, danger, legendary;
+```
+And add new set of variables with same type keyword.
+
+```
+// -- Legendary button type
+button-legendary-color = #fff;
+button-legendary-bg-color = #14B694;
+button-legendary-border-color = button-legendary-bg-color;
+
+button-legendary-hover-bg-color = darken(button-legendary-bg-color, 25%);
+button-legendary-hover-color = button-legendary-color;
+button-legendary-hover-border-color = button-legendary-hover-bg-color;
+
+button-legendary-active-bg-color = darken(button-legendary-bg-color, 50%);
+button-legendary-active-color = button-legendary-color;
+button-legendary-active-border-color = button-legendary-active-bg-color;
+```
+
 
 ### Init
 
