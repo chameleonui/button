@@ -45,16 +45,16 @@ button-style(class) {
         display: block;
         width: 100%;
     }
-        
+
 }
 
 button-size(size) {
     // Set variables according to type and use defualts if type is null
     if (size != null){
-        padding = button-+size+-padding;
-        font-size = button-+size+-font-size;
-        line-height = button-+size+-line-height;
-        border-radius = button-+size+-border-radius;
+        padding = lookup('button-' + size + '-padding');
+        font-size = lookup('button-' + size + '-font-size');
+        line-height = lookup('button-' + size + '-line-height');
+        border-radius = lookup('button-' + size + '-border-radius');
     } else {
         padding = button-padding;
         font-size = button-font-size;
@@ -72,12 +72,12 @@ button-size(size) {
 button-type(type = null){
     // Set variables according to type and use defualts if type is null
     if (type != null){
-        color = button-+type+-color;
-        bg-start-color = button-+type+-bg-color-start if use-button-bg-gradient;
-        bg-end-color = button-+type+-bg-color-end if use-button-bg-gradient;
-        bg-color = button-+type+-bg-color;
-        border-color = button-+type+-border-color;
-        border-color = button-+type+-border-color;
+        color = lookup('button-' + type + '-color');
+        bg-start-color = lookup('button-' + type + '-bg-color-start') if use-button-bg-gradient;
+        bg-end-color = lookup('button-' + type + '-bg-color-end') if use-button-bg-gradient;
+        bg-color = lookup('button-' + type + '-bg-color');
+        border-color = lookup('button-' + type + '-border-color');
+        border-color = lookup('button-' + type + '-border-color');
     } else {
         color = button-color;
         bg-start-color = button-bg-color-start if use-button-bg-gradient;
@@ -85,7 +85,7 @@ button-type(type = null){
         bg-color = button-bg-color;
         border-color = button-border-color;
     }
-    
+
     // Apply styles
     gradient-vertical(bg-start-color, bg-end-color) if use-button-bg-gradient;
     background-color: bg-color if !use-button-bg-gradient; // Apply when gradients disabled
