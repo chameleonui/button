@@ -9,7 +9,7 @@ Highly customisable buttons
 | --- | --- | --- | --- |
 | Node | v0.12.2 | `node -v`| [nodejs.org](https://nodejs.org/) |
 | component | ~v0.19 | `component -V` | [component](https://github.com/componentjs/component) |
-| stylus | v0.33 | `stylus -V` | [stylus](https://learnboost.github.io/stylus/) |
+| stylus | v0.51 | `stylus -V` | [stylus](https://learnboost.github.io/stylus/) |
 
 ## Installation
 
@@ -103,8 +103,7 @@ button-danger-active-border-color = button-danger-active-bg-color;
 Append another button type to `button-types-list` list. In this case, will create Legendary button type.
 
 ```
-// Type - list of others
-button-types-list = primary, danger, legendary;
+push(button-types-list, legendary);
 ```
 And add new set of variables with same type keyword.
 

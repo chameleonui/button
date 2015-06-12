@@ -2,15 +2,15 @@
   "name": "button",
   "repo": "chameleonui/button",
   "description": "Highly customisable buttons",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "keywords": [],
   "dependencies": {
-    "chameleonui/utils": "1.0.2"
+    "chameleonui/utils": "1.1.0"
   },
   "development": {},
   "license": "MIT",
   "styles": [
-    "button-flat.styl",
-    "button.styl"
+    "stylus/button-flat.styl",
+    "stylus/button.styl"
   ]
 }
