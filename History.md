@@ -3,6 +3,8 @@
 - Updated component dependency version
 - Stylus files moved to subfolder
 - Fixed dynamic variable binding with `lookup()`
+- Added chameleonui/css3 dependency to component
+- Updated example
 
 ### v1.0.2
 
